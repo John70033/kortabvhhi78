@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Browser Video Call</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="panel">
+        <h1>Secure Video Call</h1>
+
+        <div id="joinScreen">
+          <label for="nameInput">Your name</label>
+          <input id="nameInput" type="text" placeholder="Enter your name" value="Guest" />
+
+          <label for="roomInput">Room link</label>
+          <input id="roomInput" type="text" placeholder="room code or URL" />
+
+          <button id="createRoomBtn">Create Link</button>
+          <button id="joinRoomBtn" class="primary">Join Call</button>
+        </div>
+
+        <div id="consentScreen" class="hidden">
+          <p>
+            This call will access your camera and microphone. Only continue if you
+            want to join the call.
+          </p>
+          <button id="allowCallBtn" class="primary">Allow Camera &amp; Mic</button>
+          <button id="cancelCallBtn">Cancel</button>
+        </div>
+
+        <div id="callControls" class="hidden">
+          <button id="toggleMicBtn">Mute</button>
+          <button id="toggleCameraBtn">Camera Off</button>
+          <button id="leaveCallBtn" class="danger">Leave</button>
+        </div>
+
+        <div id="shareLinkBox" class="hidden">
+          <p>Share this link:</p>
+          <input id="shareLinkInput" type="text" readonly />
+          <button id="copyLinkBtn">Copy Link</button>
+        </div>
+      </div>
+
+      <div class="videoArea">
+        <video id="localVideo" autoplay playsinline muted></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
